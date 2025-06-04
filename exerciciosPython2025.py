@@ -83,7 +83,7 @@ def main(n,n2,s):
         #num = 0
         sum= 0
         for num in list:
-            #print(num) #ta pegando o ultimo num da interacao, talvez usar while
+            print(num) #ta pegando o ultimo num da interacao, talvez usar while
             sum += num
             continue
         print(f"A soma é {sum}")
@@ -102,13 +102,21 @@ def main(n,n2,s):
         if not isinstance(n, (int)):
             return "Não é inteiro"
         else:
-            for num in myList:
-                n=0
-                if myList[n] > myList[n+1]:
-                    big = myList[n]
-                    n+=2
-                else: big = myList[n+1]
-                n+=1
+            nn=0
+            count=0
+            while myList[nn]> len(myList);
+
+                if myList[nn] > myList[nn+1]:
+                    bigger =myList[nn]
+                print(myList[nn+1])
+                print(bigger)
+                print(nn)
+                nn+=2
+                print(nn)
+                else: bigger = myList[nn+1]
+                nn+=1
+                print(nn)
+                count ++
                 ''' if myList[1] > myList[0]: 
                     big = myList[1]
                     n = myList[big+1]   
@@ -122,31 +130,34 @@ def main(n,n2,s):
             print("Não é uma palavra")
         else: inversa = s[-1]
     #11
-    def vowel(s):
-        s = list(s)
-        print(s)
+    def vowel(n):
+        print(n)
+        listWord = list(s)
+        print(listWord)
         #transformar s em lista
-        counter =0
-        vogais = [a,e,i,o,u]
-        if s in vogais:
+        counter = 0
+        #while counter =5
+        vogais = ["a","e","i","o","u"]
+        for letter in listWord:
             for v in vogais:
-                counter+=1
-    bigNum(n,n2)
+                if letter == v:
+                    qntd +=1
+                    print(qntd)
+               # counter+=1
 
 
     
     ''''def teste(n,n2,option):
         print(f"Opção escolhida: {option}")'''
-
 #for function in main():
 
     functions = {"add": lambda:addF(n,n2),
-               "sub": lambda: subF(n,n2),
-               "mult": lambda: mult(n,n2),
-               "div": lambda: div(n,n2),
-               "fatorial": lambda: fatorial(n),
-               "primo": lambda: prime(n),
-               "listsum": lambda: listSum(n, n2),
+                "sub": lambda: subF(n,n2),
+                "mult": lambda: mult(n,n2),
+                "div": lambda: div(n,n2),
+                "fatorial": lambda: fatorial(n),
+                "primo": lambda: prime(n),
+                "listsum": lambda: listSum(n, n2),
                 "bignum": lambda: bigNum(n,n2),
                 "invstr": lambda: invString(s),
                 "vogal": lambda: vowel("s")
@@ -154,14 +165,17 @@ def main(n,n2,s):
     print(functions.keys())
     option = input("Qual operação deseja realizar? Caso você deseje sair digite \"sair\"\n ").lower()
 
+
         #if option == function:
         #option
    # option = input("Qual operação deseja realizar? Caso desejes sair digite \"sair\" ").lower()
     sair = ("sair" or "exit" or "dar o fora"or "fechar o programa").lower()
     while option != sair:
-   
+    
+
         if option in functions:
             functions[option]()
+            option2=input("Use o programa novamente ou saia, o que você escolhe?\n ")
         #option = input("Qual operação deseja realizar? Caso desejes sair digite \"sair\" ").lower()
         
         #if option == "addf" :#or "soma" or "Soma": nao entendo pq nao passa deste comando e aceita qualquer coisa
@@ -172,72 +186,14 @@ def main(n,n2,s):
         #    break
 
         else: print("A alternativa não existe")
-        option2=input("Tente novamente ou saia, o que você escolhe?\n ")
+
         if option2 != sair:
             continue
         else:
-            print("Voc~e saiu do programa com sucesso")
+            print("Você saiu do programa com sucesso")
             break
 
 
 if __name__== "__main__":
     main(int(input('Insira o primeiro número:\n')),(int(input('Insira o segundo número:\n'))),
      str(input("Digite uma palavra \n")))
-
-    '''option = ""
-    printf("    1 - addF\n
-    2 - subF\n
-    3 - mult\n
-    4 - div\n
-    #fatorial(n)
-    #prime(n)
-    #listSum(n, n2)
-    #bigNum(n,n2)")
-    while option == "sair":
-        option = input("Qual operação deseja realizar? Caso deseje sair digite \"sair\" ").lower()
-        
-        if option == "addf" :#or "soma" or "Soma": nao entendo pq nao passa deste comando e aceita qualquer coisa
-            addF(n,n2)
-        elif option == "subf":
-            subF(n,n2)
-        #elif option == "sair":
-        #    break
-
-        else: print("A alternativa não existe")
-        option=input("Desejas tentar de novo? ")
-        if option == "sim" or "s":
-            continue
-        #elif option == "sair":
-        #    break
-    print("Tu saistes programa com sucesso")
-    
-            # if again is written then start again if break then break
-'''
-
-
-
-
-  
-'''      
-    while option != "sair":
-        #option = input("Qual operação deseja realizar? Caso desejes sair digite \"sair\" ").lower()
-        
-        if option == "addf" :#or "soma" or "Soma": nao entendo pq nao passa deste comando e aceita qualquer coisa
-            addF(n,n2)
-        elif option == "subf":
-            subF(numbers)
-        #elif option == "sair":
-        #    break
-
-        else: print("A alternativa não existe")
-        option=input("Desejas tentar de novo? ")
-        if option == "sim" or "s":
-            continue
-        #elif option == "sair":
-        #    break
-    print("Tu saistes do programa com sucesso")'''
-
-
-
-#main(int(input('Insira o primeiro número:\n')),(int(input('Insira o segundo número:\n'))))
-#print(inp + \n)
