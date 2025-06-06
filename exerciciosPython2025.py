@@ -420,7 +420,7 @@ def main(n,n2,s):
     #19
     def sumDigit(n):
         qnt =0
-        for digit in n:
+        for digit in str(n):
             qnt+=1
         print(qnt)
 
@@ -431,7 +431,9 @@ def main(n,n2,s):
 
     #21
     def removeRepetition(n,n2):
-        list = [1,n,4,6,4,7,1,4,0,n2,n]
+        llist = [1,n,4,6,4,7,1,4,0,n2,n]
+        cleanList = set(llist)
+        print(cleanList)
 
     #22 
     def palindromo(s):
@@ -466,6 +468,41 @@ def main(n,n2,s):
 
 
     #27
+def frequency():
+        llist = [1,4,6,4,7,1,4,0]
+        dict={}
+        qnt = 0
+        
+        for elem in set(llist):
+            for l in llist:
+                if elem ==l in llist:
+                    qnt += 1
+            (f"A quantidade de {elem} na lista {llist} = {qnt}\n")
+        
+            dict.update({elem: qnt})
+            qnt=0
+        for key,value in dict.items():#itwm() pego todos os key, value da lista e o for me retorna a string de cada
+            print(f"A quantidade de {key} na lista {llist} = {value}\n")
+        
+                    
+def frequency():
+        llist = [1,4,6,4,7,1,4,0]
+        dict={}
+        qnt = 0
+        
+        for elem in set(llist):
+            for l in llist:
+                if elem ==l in llist:
+                    qnt += 1
+            (f"A quantidade de {elem} na lista {llist} = {qnt}\n")
+        
+            dict.update({elem: qnt})
+            qnt=0
+        for keyValue in dict:
+            print(f"A quantidade de {keyValue.keys()} na lista {llist} = {keyValue.values()}\n")
+        
+
+
     def frequency():
         list = [1,4,6,4,7,1,4,0]
         #indice=0
