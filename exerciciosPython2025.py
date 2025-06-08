@@ -37,30 +37,33 @@ def main(n,n2,s):
 
     #5
     def fatorial(n):
-        fat = 1
-        fat *= n
-        print(fat)
-        fatorial(n-1)
-        return print(f'\nO fatorial {n}! é igual a {fat}.\n') 
+        if n > 1:
+            fat = n * fatorial(n - 1)
+            print(f"{n}! = {fat}")
+            return fat
+        else:
+            print("1! = 1")
+            return 1
+ 
     
-    """def fatorial(n):
-        fat = n*(n-1)
-        while fat !=0:
-            do fat
-                     atualizar valor de n em - duas unidades e fazer de novo enaquanto salvo o resultado antior em outra variavel 
-                nao salvar a ultima iteracao q é qnd ele admite a condicao q é para ele parar
-                 fatResult *= fat em cada iteracao
-                 dificuldade em criar iteracoes de cabeca
-                 treinar mais loops """
+        """def fatorial(n):
+            fat = n*(n-1)
+            while fat !=0:
+                do fat
+                        atualizar valor de n em - duas unidades e fazer de novo enaquanto salvo o resultado antior em outra variavel 
+                    nao salvar a ultima iteracao q é qnd ele admite a condicao q é para ele parar
+                    fatResult *= fat em cada iteracao
+                    dificuldade em criar iteracoes de cabeca
+                    treinar mais loops """
 
-    """def fatorial(n):
-        fat = 1
-        counter = n
-        while counter > 1:
-            fat *= counter
-            print(fat)
-            counter -= 1
-        print(f'\nO fatorial {n}! é igual a {fat}.\n')"""    
+        """def fatorial(n):
+            fat = 1
+            counter = n
+            while counter > 1:
+                fat *= counter
+                print(fat)
+                counter -= 1
+            print(f'\nO fatorial {n}! é igual a {fat}.\n')"""    
         
     #6
     def prime (n):
@@ -420,20 +423,77 @@ def main(n,n2,s):
     #19
     def sumDigit(n):
         qnt =0
-        for digit in str(n):
+        for digit in str(n):# o for in nao aceita iterar com int o str(n) so funciona no final
             qnt+=1
         print(qnt)
 
-
     #20
-    def decimalToBy(n,n2):
-        p
+    def decimalBinary(n):
+        def decBi(n,bb=None):
+            if bb is None:
+                bb=[]
+            if n%2 ==0:
+                bb.append("0")
+            else: 
+                bb.append("1")
+            if n!=0:
+                decBi(n//2,bb)
+            else:
+                print("".join(bb[::-1]))
+        decBi(n)
+
+
+        '''def decimalBinary(n):
+            def decimalBinary(n,bb):
+                if bb is None:
+                    bb=[]
+                if n%2 ==0:
+                    bb.append("0")
+                else: 
+                    bb.append("1")
+                if n!=0:
+                    decimalBinary(n//2,bb)
+                else:
+                    print("".join(bb[::-1].))   
+
+            def decimalBinary(n):
+                b = ""
+                if n%2 ==0:
+                    b+="0"
+                else: 
+                    b+="1"
+                if n!=0:
+                    decimalBinary(n//2)
+                else:
+                    print(b)'''
+
+
+
+        '''def decimalBinary(n):
+            zero = '0'
+            one = '1'
+            two = one+zero
+            three = one+ one
+            print(two,three)
+            for zero,one in n:
+                '''
 
     #21
     def removeRepetition(n,n2):
         llist = [1,n,4,6,4,7,1,4,0,n2,n]
-        cleanList = set(llist)
-        print(cleanList)
+        llist2=[]
+        for elem in llist:
+            if elem not in llist2:
+                llist2.append(elem)
+            else:
+                continue
+
+
+
+        def removeRepetition(n,n2):
+            llist = [1,n,4,6,4,7,1,4,0,n2,n]
+            cleanList = set(llist)
+            print(cleanList)
 
     #22 
     def palindromo(s):
@@ -445,8 +505,7 @@ def main(n,n2,s):
             print("É palindromo")
         else:
             print("Não é palindromo")
-    #Nao achei que iria funcionar de primeira, mas foi to sentindo a evoluçao
-
+        #Nao achei que iria funcionar de primeira, mas foi to sentindo a evoluçao
 
     #23
     def evenList(n,n2):
@@ -466,9 +525,50 @@ def main(n,n2,s):
                 sum +=l
         print(sum)
 
+    #25
+    def bubbleSort():
+        llist=[7,2,4,9,0,4]
+        #change = 0
+        for i in range(len(llist)-1):
+            #change = 1  
+            for j in range(len(llist)-1):
+                if llist[j]> llist[j+1]:
+                    #change = 1  
+                    llist[j],llist[j+1] = llist[j+1],llist[j]
+            #if change == 0: break
+                #llist[::-1]#depois de cada rodada va deixando o ultimo intacto
+        print(llist)
+                   
 
+
+
+        '''def bubble():
+            llist=[7,2,4,9,0,4]
+            for l in llist:
+                if llist[l]>llist[l+1]:
+                    llist[[l+1],llist[l]]
+                    print(llist)
+
+
+
+        def bubble():
+            llist=[7,2,4,9,0,4]
+            for l in llist:
+                if llist[l]>llist[l+1]:
+                llist[[l+1],llist[l]]'''
+        
+    #26
+    def insertionSort():
+        llist = [7, 2, 4, 9, 0, 4,-1]
+        for j in range(1, len(llist)):
+            while j > 0 and llist[j] < llist[j - 1]:
+                llist[j], llist[j - 1] = llist[j - 1], llist[j]
+                j -= 1
+                print(llist)
+        print("\nFinal:", llist)
+        
     #27
-def frequency():
+    def frequency():
         llist = [1,4,6,4,7,1,4,0]
         dict={}
         qnt = 0
@@ -482,25 +582,25 @@ def frequency():
             dict.update({elem: qnt})
             qnt=0
         for key,value in dict.items():#itwm() pego todos os key, value da lista e o for me retorna a string de cada
-            print(f"A quantidade de {key} na lista {llist} = {value}\n")
-        
-                    
-def frequency():
-        llist = [1,4,6,4,7,1,4,0]
-        dict={}
-        qnt = 0
-        
-        for elem in set(llist):
-            for l in llist:
-                if elem ==l in llist:
-                    qnt += 1
-            (f"A quantidade de {elem} na lista {llist} = {qnt}\n")
-        
-            dict.update({elem: qnt})
-            qnt=0
-        for keyValue in dict:
-            print(f"A quantidade de {keyValue.keys()} na lista {llist} = {keyValue.values()}\n")
-        
+                print(f"A quantidade de {key} na lista {llist} = {value}\n")
+            
+                                
+        '''def frequency():
+                llist = [1,4,6,4,7,1,4,0]
+                dict={}
+                qnt = 0
+                
+                for elem in set(llist):
+                    for l in llist:
+                        if elem ==l in llist:
+                            qnt += 1
+                    (f"A quantidade de {elem} na lista {llist} = {qnt}\n")
+                
+                    dict.update({elem: qnt})
+                    qnt=0
+                for keyValue in dict:
+                    print(f"A quantidade de {keyValue.keys()} na lista {llist} = {keyValue.values()}\n")
+                
 
 
     def frequency():
@@ -514,22 +614,21 @@ def frequency():
                     print(f"A quantidade de {list[indice]} na lista {list} = {qnt}\n")    
                     #dict {list[indice]: qnt,
                     #[indice]: qnt}
-    def frequency():
-        list = [1,4,6,4,7,1,4,0]
-        #indice=0
-        qnt = 0
+        def frequency():
+            list = [1,4,6,4,7,1,4,0]
+            #indice=0
+            qnt = 0
+            
+            #for indice in range(len(list) -1):
+            for l in list:
+                if l ==l:
+                    qnt += 1
+                    print(f"A quantidade de {l} na lista {list} = {qnt}\n")
+                        #dict= list[indice]: qnt,
+                        #[indice]: qnt'''
         
-        #for indice in range(len(list) -1):
-        for l in list:
-            if l ==l:
-                qnt += 1
-                print(f"A quantidade de {l} na lista {list} = {qnt}\n")
-                    #dict= list[indice]: qnt,
-                    #[indice]: qnt,
-frequency()
-    
     #28
-    def potencia(n,n2):
+    def power(n,n2):
         print(n**n2)
         return n**n2
     
@@ -552,52 +651,81 @@ frequency()
                     summ+=num
             print(summ)
 
-            
-
-    
     ''''def teste(n,n2,option):
         print(f"Opção escolhida: {option}")'''
 
 #for function in main():
 
-    functions = {"add": lambda:addF(n,n2),
-               "sub": lambda: subF(n,n2),
-               "mult": lambda: mult(n,n2),
-               "div": lambda: div(n,n2),
+    functions = {"adição": lambda:addF(n,n2),
+               "subtração": lambda: subF(n,n2),
+               "multiplicação": lambda: mult(n,n2),
+               "divisão": lambda: div(n,n2),
                "fatorial": lambda: fatorial(n),
                "primo": lambda: prime(n),
-               "listsum": lambda: listSum(n, n2),
-                "bignum": lambda: bigNum(n,n2),
-                "inversa": lambda: invString(s),
+               "somar lista": lambda: listSum(n, n2),
+                "num grande": lambda: bigNum(n,n2),
+                "num pequeno": lambda: smallNum(n,n2),
+                "string inversa": lambda: invString(s),
                 "vogal": lambda: vowel(s),
-                "cemf": lambda: celsToFaren(n),
+                "celcius para farenheit": lambda: celsToFaren(n),
                 "media": lambda: average(n,n2),
-                "imparpar": lambda: evenOdd(n),
-                "bissexto": lambda: leapYear(n)
+                "impar ou par": lambda: evenOdd(n),
+                "ano bissexto": lambda: leapYear(n),
+                "mdc":lambda:mdc(n,n2),
+                "mmc":lambda:mmc(n,n2),
+                "sequencia fibonacci":lambda: fibonacci(n),
+                "somar digitos":lambda: sumDigit(n),
+                "decimal pra binario":lambda:decimalBinary(n),
+                "remover repetição":lambda:removeRepetition(n,n2),
+                "palindromo":lambda:palindromo(s),
+                "lista par":lambda:evenList(n,n2),
+                "lista impar": lambda:oddList(n,n2),
+                "bubble":lambda:bubbleSort(),
+                "insertion":lambda:insertionSort(),
+                "frequencia":lambda:frequency(),
+                "potencia":lambda:power(n,n2),
+                "procurar lista":lambda:listSearcher(n),
+                "somar matriz":lambda:sumMatrix()
+               }        
+    llist=list(functions.keys())
+    newFunctions = {}
+    for i in range(len(llist)):
+        #for string in (llist):
+            #print(llist,string)
+            #f"{i} - ".join(string)
+        print(completeList := f"{i+1} - {llist[i]}")
+        newFunctions[i + 1] = functions[llist[i]]
+    #for k,v in newFunctions.items():print(k," key ",v," value" )
+            #for k,v in functions:
+            #    newFunctions = {(k=i, v = functions )}
+    option = input("Qual operação deseja realizar? Caso você deseje sair digite \"sair\"\n ")
+    sair = ("sair", "exit", "dar o fora", "fechar o programa")
+        #if option == function:    
+    while option not in sair:
 
-               }    
-    print(functions.keys())
-    option = input("Qual operação deseja realizar? Caso você deseje sair digite \"sair\"\n ").lower()
+        if option.isdigit():
+            optionInt = int(option)
+            if optionInt in newFunctions:
+                newFunctions[optionInt]()
+                option=input("Cheers! Jogue novamente ou saia \n ")
 
-        #if option == function:
-        #option
-   # option = input("Qual operação deseja realizar? Caso desejes sair digite \"sair\" ").lower()
-    sair = ("sair" or "exit" or "dar o fora"or "fechar o programa").lower()
-    
-    while option != sair:
-   
-        if option in functions:
-            functions[option]()
+            else:
+                print("Número inválido, tente novamente.")
 
-        else: print("A alternativa não existe")
-        option=input("Tente novamente ou saia, o que você escolhe?\n ")
-        if option == sair:
+        elif option.lower() in functions:
+            functions[option.lower()]()
+            option=input("Cheers! Jogue novamente ou saia \n ")
+
+        else: 
+            print("A alternativa não existe")
+            #print(completeList)
+            option=input("Tente novamente ou saia \n ")
+        if option in sair:
             print("Você saiu do programa com sucesso")
             break
         else:
             continue
 
-                #option = input("Qual operação deseja realizar? Caso desejes sair digite \"sair\" ").lower()
         
         #if option == "addf" :#or "soma" or "Soma": nao entendo pq nao passa deste comando e aceita qualquer coisa
          #   addF(n,n2)
@@ -610,7 +738,7 @@ frequency()
 
 if __name__== "__main__":
     main(int(input('Insira o primeiro número:\n')),(int(input('Insira o segundo número:\n'))),
-     (input("Digite uma palavra:  "))).strip()
+     (input("Digite uma palavra: \n")).strip())
 
     '''option = ""
     printf("    1 - addF\n
